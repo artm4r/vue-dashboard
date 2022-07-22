@@ -1,15 +1,20 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import {useFetchResource} from "./composables/useFetchResource";
+
+const { data, loadingStatus } = useFetchResource('https://jsonplaceholder.typicode.com/users')
+
+
 </script>
 
 <template>
-  <header>
+  <header v-if="!loadingStatus">
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
+      <ul>
+        <li v-for="user in data" :key="`user_${user.id}`">{{ user.name }}</li>
+      </ul>
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
