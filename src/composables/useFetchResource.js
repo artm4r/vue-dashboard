@@ -1,7 +1,8 @@
-import { ref, onMounted }  from 'vue'
+import { ref }  from 'vue'
+
+const data = ref([])
 
 export const useFetchResource = (url) => {
-    const data = ref([])
     const loadingStatus = ref(null)
 
     loadingStatus.value = true
@@ -19,9 +20,5 @@ export const useFetchResource = (url) => {
             })
     }
 
-    onMounted(() => {
-        fetchResource()
-    })
-
-    return { data, loadingStatus }
+    return { data, loadingStatus, fetchResource }
 }
