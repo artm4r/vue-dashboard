@@ -7,17 +7,17 @@ export const useFetchResource = (url) => {
 
     loadingStatus.value = true
 
-    const fetchResource = () => {
-        fetch(url)
-            .then(res => res.json())
-            .then(json => {
-                data.value = json
-                loadingStatus.value = false
-            })
-            .catch(err => {
-                console.log(err)
-                loadingStatus.value = false
-            })
+    const fetchResource = async () => {
+        return fetch(url)
+                .then(res => res.json())
+                .then(json => {
+                    data.value = json
+                    loadingStatus.value = false
+                })
+                .catch(err => {
+                    console.log(err)
+                    loadingStatus.value = false
+                })
     }
 
     return { data, loadingStatus, fetchResource }
