@@ -91,7 +91,7 @@ const countDistance = (xCord) => {
     color: #C5C7CD;
   }
   .users-list {
-    padding: 32px 0 24px;
+    padding: 32px 0 0;
     margin-bottom: 30px;
     background: #FFFFFF;
     border: 1px solid #DFE0EB;
@@ -161,9 +161,6 @@ const countDistance = (xCord) => {
         transition: .3s;
         &:hover {
           background-color: rgba(55, 81, 255, 0.04);
-        }
-        &:last-child {
-          padding-bottom: 0;
         }
         .col-user-details {
           align-items: center;

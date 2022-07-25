@@ -1,10 +1,12 @@
 <script setup>
-import {reactive} from "vue"
+import { reactive } from "vue"
 import { useFetchResource } from '@/composables/useFetchResource'
 import UsersStats from "@/components/UsersStats.vue"
 import UsersList from '@/components/UsersList.vue'
+import TheTickets from "@/components/TheTickets.vue"
+import TheTasks from "@/components/TheTasks.vue"
 
-const  { data:users } = useFetchResource()
+const  { data:users, loadingStatus } = useFetchResource()
 
 const stats = reactive([
   {
@@ -34,17 +36,23 @@ const stats = reactive([
 <template>
     <div>
       <UsersStats :stats="stats" />
-      <UsersList v-if="users.length" :users="users" />
-<!--      <ul>-->
-<!--        <li v-for="user in users" :key="`user_${user.id}`">-->
-<!--          <RouterLink :to="{ name: 'User', params: { id: user.id }}">{{ user.name }}</RouterLink>-->
-<!--        </li>-->
-<!--      </ul>-->
+      <UsersList v-if="loadingStatus" :users="users" />
+      <div class="bottom-widgets d-flex">
+        <TheTickets class="col-half" />
+        <TheTasks class="col-half" />
+      </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
   ul {
     padding-left: 20px;
+  }
+  .bottom-widgets {
+    justify-content: space-between;
+    align-items: flex-start;
+    .col-half {
+      width: 48%;
+    }
   }
 </style>
