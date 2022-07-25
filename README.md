@@ -1,29 +1,11 @@
-# vue-dashboard
+# Vue 3 dashboard
 
-This template should help get you started developing with Vue 3 in Vite.
+This is test job for work application in **Coderiver** team.  
+Completed via Vue3 Composition API
 
-## Recommended IDE Setup
+## Features
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+1. Fetching and listing users from API
+2. Single user page that works even via direct external link like http://domain.com/users/1 
+3. 404 error handling
+4. TODO widget

@@ -1,10 +1,7 @@
 <script setup>
-defineProps({
-  stats: {
-    type: Array,
-    required: true
-  }
-})
+import { useUsersStats } from "@/composables/useUsersStats.js";
+
+const { stats } = useUsersStats()
 </script>
 
 <template>
